@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search Vehicles</h2>
+
+<form method="get" style="margin-bottom: 20px;">
+    <label>Search by make, model, plate, or type:</label><br>
+    <input type="text" name="q" value="{{ query }}" style="padding: 6px; width: 250px; margin-top: 5px;">
+    <button class="btn" type="submit" style="padding: 6px 12px;">Search</button>
+</form>
+
+<p>
+    <a href="{% url 'vehicle_list' %}">Back to Vehicle List</a> |
+    <a href="{% url 'menu' %}">Menu</a>
+</p>
+
+{% if query %}
+    <h3>Results for "{{ query }}"</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Plate</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Type</th>
+                <th>Daily Rate</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for v in results %}
+            <tr>
+                <td>{{ v.vehicle_id }}</td>
+                <td>{{ v.plate }}</td>
+                <td>{{ v.make }}</td>
+                <td>{{ v.model }}</td>
+                <td>{{ v.year }}</td>
+                <td>{{ v.vehicletype.category }}</td>
+                <td>{{ v.vehicletype.daily_rate }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No matching vehicles found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endif %}
+
+{% endblock %}

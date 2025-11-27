@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Vehicles</h2>
+
+<p>
+    <a href="{% url 'vehicle_search' %}">Search Vehicles</a> |
+    <a href="{% url 'menu' %}">Back to Menu</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Plate</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Type</th>
+            <th>Daily Rate</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for v in vehicles %}
+        <tr>
+            <td>{{ v.vehicle_id }}</td>
+            <td>{{ v.plate }}</td>
+            <td>{{ v.make }}</td>
+            <td>{{ v.model }}</td>
+            <td>{{ v.year }}</td>
+            <td>{{ v.vehicletype.category }}</td>
+            <td>{{ v.vehicletype.daily_rate }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No vehicle records found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search Customers</h2>
+
+<form method="get" style="margin-bottom: 20px;">
+    <label>Search by name, license, or email:</label><br>
+    <input type="text" name="q" value="{{ query }}" style="padding: 6px; width: 250px; margin-top: 5px;">
+    <button class="btn" type="submit" style="padding: 6px 12px;">Search</button>
+</form>
+
+<p>
+    <a href="{% url 'customer_list' %}">Back to Customer List</a> |
+    <a href="{% url 'menu' %}">Menu</a>
+</p>
+
+{% if query %}
+    <h3>Results for "{{ query }}"</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Driver License</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for c in results %}
+            <tr>
+                <td>{{ c.customer_id }}</td>
+                <td>{{ c.driver_license }}</td>
+                <td>{{ c.name }}</td>
+                <td>{{ c.phone_number }}</td>
+                <td>{{ c.email }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No matching customers found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endif %}
+
+{% endblock %}

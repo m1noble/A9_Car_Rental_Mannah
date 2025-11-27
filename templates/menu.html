@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div style="
+    background: linear-gradient(135deg, #0d6efd, #3b83f6);
+    padding: 50px 40px;
+    border-radius: 16px;
+    color: white;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+">
+    <h1 style="margin: 0; font-size: 36px; font-weight: 700;">
+        Car Rental Database System
+    </h1>
+    <p style="margin-top: 10px; font-size: 18px; opacity: 0.9;">
+        Manage, populate, and query your CPS510 Assignment 9 database in a modern UI.
+    </p>
+</div>
+
+<!-- Features Grid -->
+<h2 style="font-size: 26px; margin-bottom: 20px;">Main Menu</h2>
+
+<div style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+">
+
+    <!-- Card 1 -->
+    <a href="{% url 'create_tables' %}" style="
+        text-decoration: none;
+        padding: 25px;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 1px solid #e5e5e5;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        color: #222;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'">
+        <h3 style="margin: 0 0 8px;">📦 Create Tables</h3>
+        <p style="margin: 0; color: #555;">Initialize database schema (3NF/BCNF).</p>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="{% url 'drop_tables' %}" style="
+        text-decoration: none;
+        padding: 25px;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 1px solid #e5e5e5;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        color: #222;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'">
+        <h3 style="margin: 0 0 8px;">🗑️ Drop Tables</h3>
+        <p style="margin: 0; color: #555;">Delete all records (reset system).</p>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="{% url 'populate_tables' %}" style="
+        text-decoration: none;
+        padding: 25px;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 1px solid #e5e5e5;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        color: #222;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'">
+        <h3 style="margin: 0 0 8px;">🌱 Populate Tables</h3>
+        <p style="margin: 0; color: #555;">Insert sample dummy data across all tables.</p>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="{% url 'customer_list' %}" style="
+        text-decoration: none;
+        padding: 25px;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 1px solid #e5e5e5;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        color: #222;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'">
+        <h3 style="margin: 0 0 8px;">👤 Query Customers</h3>
+        <p style="margin: 0; color: #555;">View and search customer records.</p>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="{% url 'vehicle_list' %}" style="
+        text-decoration: none;
+        padding: 25px;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        border: 1px solid #e5e5e5;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: block;
+        color: #222;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.12)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.08)'">
+        <h3 style="margin: 0 0 8px;">🚗 Query Vehicles</h3>
+        <p style="margin: 0; color: #555;">View and search vehicle records.</p>
+    </a>
+
+</div>
+
+<!-- Footer -->
+<p style="margin-top: 40px; color: #777; font-size: 14px;">
+    To exit, simply close this browser tab or stop the Django server.
+</p>
+
+{% endblock %}

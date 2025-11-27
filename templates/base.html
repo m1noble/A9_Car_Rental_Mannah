@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPS510 A9 - Car Rental System</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px auto;
+            max-width: 1100px;
+            line-height: 1.5;
+            color: #222;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0a58ca;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .notice {
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1px solid #dcdcdc;
+            background: #f9f9f9;
+            margin: 15px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #0d6efd;
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #0b5ed7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ececec;
+            font-size: 14px;
+        }
+
+        th {
+            background: #fafafa;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CPS510 - Assignment 9 <br><small style="font-size:14px;color:#666">Car Rental Database System</small></h1>
+</header>
+
+{% if message %}
+    <div class="notice">{{ message }}</div>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
